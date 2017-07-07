@@ -3,7 +3,7 @@
 @section('content')
     
     <!-- START -->
-    <h1>メッセージ一覧</h1>
+    <h1>タスク一覧</h1>
     
     @if (count($tasks) > 0)
         <ul>
@@ -13,5 +13,7 @@
         </ul>
     @endif
     <!-- /END -->
+    
+    {!! link_to_route('tasks.create', '新しいタスクを追加する') !!}
     
 @endsection
