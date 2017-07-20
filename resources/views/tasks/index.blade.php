@@ -6,7 +6,7 @@
     @if (Auth::check())
     <?php $user = Auth::user(); ?>
     <h1>{{ $user->name }} さんのタスク一覧</h1>
-        @if (count($tasks) > 0)
+        @if (count($tasks) > 10)
             <table class="table table-striped">
                 <thead>
                     <tr>
