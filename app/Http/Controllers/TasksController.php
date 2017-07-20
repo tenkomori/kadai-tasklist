@@ -22,7 +22,7 @@ class TasksController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $tasks = $user->tasks()->orderBy('created_at', 'desc');
+            $tasks = $user->tasks()->orderBy('created_at', 'desc')->get();
 
             $data = [
                 'user' => $user,
