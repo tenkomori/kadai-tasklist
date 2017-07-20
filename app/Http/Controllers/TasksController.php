@@ -22,7 +22,7 @@ class TasksController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $tasks = $user->tasks()->orderBy('created_at', 'desc')->get();
+            $tasks = $user->tasks()->get();
 
             $data = [
                 'user' => $user,
@@ -67,18 +67,18 @@ class TasksController extends Controller
             'content' => 'required|max:255',
         ]);
         
-        
+        /*
         $task = new Task;
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
+        */
         
-        /*
         $request->user()->tasks()->create([
             'status' => $request->status,
             'content' => $request->content,
         ]);
-        */
+        
         
         return redirect('/');
     }
