@@ -8,3 +8,4 @@
     </tr>
     @endforeach
 </tbody>
+{!! $tasks->render() !!}
