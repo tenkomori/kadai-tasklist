@@ -13,20 +13,6 @@
             </div>
         </aside>
         <div class="col-xs-8">
-        @if (count($tasks) > 10)
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>タスク</th>
-                        <th>ステータス</th>
-                    </tr>
-                    @include('tasks.tasks', ['tasks' => $tasks])
-                </thead>
-            </table>
-        @else
-        <p>登録しているタスクはありません</p>
-        @endif
         </div>
     </div>
 @endsection
