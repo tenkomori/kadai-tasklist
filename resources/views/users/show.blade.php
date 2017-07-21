@@ -12,5 +12,8 @@
                 </div>
             </div>
         </aside>
+        <div class="col-xs-8">
+            @include('tasks.tasks', ['tasks' => $tasks])
+        </div>
     </div>
 @endsection
