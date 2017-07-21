@@ -3,8 +3,8 @@
 @section('content')
     
     <!-- START -->
+    @if (Auth::check())
     <h1>新規タスク作成ページ</h1>
-    
     <div class="row">
         <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6">
             
@@ -31,5 +31,8 @@
         </div>
     </div>
     <!-- /END -->
+    @else
+    <a href="/">トップページへ戻る</a>
+    @endif
     
 @endsection

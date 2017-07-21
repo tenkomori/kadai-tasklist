@@ -3,6 +3,8 @@
 @section('content')
     
     <!-- START -->
+    @if (Auth::user() && Auth::user()->id == $task->user_id)
+
     <h1>id: {{ $task->id }} のタスク編集ページ</h1>
 
     <div class="row">
@@ -30,5 +32,8 @@
         </div>
     </div>
     <!-- /END -->
+    @else
+    <a href="/">トップページへ戻る</a>
+    @endif
     
 @endsection

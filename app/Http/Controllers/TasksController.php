@@ -22,7 +22,7 @@ class TasksController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(1);
+            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
 
             $data = [
                 'user' => $user,
@@ -47,11 +47,25 @@ class TasksController extends Controller
      */
     public function create()
     {
-        $task = new Task;
         
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $task = new Task;
+
+            $data = [
+                'user' => $user,
+                'task' => $task,
+            ];
+        }
+        return view('tasks.create', $data);
+        
+        /*
         return view('tasks.create', [
             'task' => $task,
         ]);
+        */
+        
     }
 
     /**
@@ -91,11 +105,24 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        $task = Task::find($id);
         
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $task = Task::find($id);
+
+            $data = [
+                'user' => $user,
+                'task' => $task,
+            ];
+        }
+        return view('tasks.show', $data);
+        
+        /*
         return view('tasks.show', [
             'task' => $task,
         ]);
+        */
     }
 
     /**
@@ -106,11 +133,17 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        $task = Task::find($id);
-        
-        return view('tasks.edit', [
-            'task' => $task,    
-        ]);
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $task = Task::find($id);
+
+            $data = [
+                'user' => $user,
+                'task' => $task,
+            ];
+        }
+        return view('tasks.edit', $data);
     }
 
     /**

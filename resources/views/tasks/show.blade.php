@@ -3,6 +3,9 @@
 @section('content')
     
     <!-- START -->
+    @if (Auth::user() && Auth::user()->id == $task->user_id)
+    <?php $user = Auth::user(); ?>
+    
     <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
     <table class="table table-bordered">
         <tr>
@@ -26,5 +29,8 @@
         {!! Form::submit('削除', ['class' => 'btn btn-danger pull-right']) !!}
     {!! Form::close() !!}
     <!-- /END -->
+    @else
+    <a href="/">トップページへ戻る</a>
+    @endif
     
 @endsection
